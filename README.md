@@ -46,6 +46,10 @@ comparison to installing any other Hass.io add-on.
 Home Assistant. There is no need to create access tokens or to set your
 Home Assistant URL in the AppDaemon configuration.
 
+This automatic handling of the URL and token conflicts with the AppDaemon
+official documentation. The official documentation will state `ha_url` and
+`token` options are required. For the add-on, however, this isn't needed.
+
 ## Configuration
 
 **Note**: _Remember to restart the add-on when the configuration is changed._
@@ -129,6 +133,10 @@ in the `appdaemon.yaml` config file. **This is not an error!**
 
 The add-on takes care of these settings for you and you do not need to provide
 or set these in the AppDaemon configuration.
+
+This automatic handling of the URL and token conflicts with the AppDaemon
+official documentation. The official documentation will state `ha_url` and
+`token` options are required. For the add-on, these aren't needed.
 
 However, you are free to set them if you want to override, however, in
 general usage, that should not be needed and is not recommended for this add-on.

@@ -25,5 +25,5 @@ Even better: You could submit a pull request with a fix / new feature!
    developers, or if you do not have permission to do that, you may request
    the second reviewer to merge it for you.
 
-[github]: https://github.com/hassio-addons/addon-appdaemon4/issues
-[prs]: https://github.com/hassio-addons/addon-appdaemon4/pulls
+[github]: https://github.com/hassio-addons/addon-appdaemon/issues
+[prs]: https://github.com/hassio-addons/addon-appdaemon/pulls

@@ -1,5 +1,5 @@
 diff --git a/appdaemon/plugins/hass/hassplugin.py b/appdaemon/plugins/hass/hassplugin.py
-index 138aa4d..3862df1 100644
+index 138aa4d..755659a 100644
 --- a/appdaemon/plugins/hass/hassplugin.py
 +++ b/appdaemon/plugins/hass/hassplugin.py
 @@ -8,6 +8,7 @@ import pytz
@@ -10,12 +10,13 @@ index 138aa4d..3862df1 100644
  
  import appdaemon.utils as utils
  from appdaemon.appdaemon import AppDaemon
-@@ -63,11 +64,15 @@ class HassPlugin(PluginBase):
+@@ -63,11 +64,17 @@ class HassPlugin(PluginBase):
  
          if "token" in args:
              self.token = args["token"]
 +        elif "HASSIO_TOKEN" in os.environ:
 +            self.token = os.environ.get('HASSIO_TOKEN')
++            self.AD.config["plugins"][name]["token"] = self.token
          else:
              self.token = None
  
@@ -23,6 +24,7 @@ index 138aa4d..3862df1 100644
              self.ha_url = args["ha_url"]
 +        elif "HASSIO_TOKEN" in os.environ:
 +            self.ha_url = "http://hassio/homeassistant"
++            self.AD.config["plugins"][name]["ha_url"] = self.ha_url
          else:
              self.logger.warning("ha_url not found in HASS configuration - module not initialized")
  

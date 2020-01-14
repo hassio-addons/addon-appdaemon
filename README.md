@@ -40,7 +40,7 @@ comparison to installing any other Hass.io add-on.
 1. Search for the "AppDaemon 4" add-on in the Hass.io add-on store and install
    it.
 1. Start the "AppDaemon 4" add-on
-1. Check the logs of the "AppDaemon3" add-on to see if everything went well.
+1. Check the logs of the "AppDaemon 4" add-on to see if everything went well.
 
 :information_source: Please note, the add-on is pre-configured to connect with
 Home Assistant. There is no need to create access tokens or to set your

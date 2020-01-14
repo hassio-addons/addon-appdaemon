@@ -1,0 +1,33 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Community Hass.io Add-ons: AppDaemon
+# Runs the AppDaemon
+# ==============================================================================
+declare log_level
+
+bashio::log.info "Starting AppDaemon..."
+
+# Find the matching Tor log level
+log_level="INFO"
+if bashio::config.has_value 'log_level'; then
+    case "$(bashio::string.lower "$(bashio::config 'log_level')")" in
+        all|trace|debug)
+            log_level="DEBUG"
+            ;;
+        info|notice)
+            log_level="INFO"
+            ;;
+        warning)
+            log_level="WARNING"
+            ;;
+        error)
+            log_level="ERROR"
+            ;;
+        fatal|off)
+            log_level="FATAL"
+            ;;
+    esac
+fi
+
+# Run the AppDaemon
+exec appdaemon -c /config/appdaemon -D "${log_level}"

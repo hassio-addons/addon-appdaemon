@@ -140,12 +140,13 @@ will help you getting upgraded to AppDaemon 4.x.
 
 - After installing this add-on, stop the current running AppDaemon 3.x add-on.
 - Open your `/config/appdaemon/appdaemon.yaml` file in an editor.
-  - Remove the `log` and `hadashboard` sections.
+  - Remove the `log`.
   - Remove`threads`, `api_port`, `app_dir`, `ha_url` and `token`.
   - Add the following to the `appdaemon` section: `latitude`, `longitude`,
     `elevation` and `time_zone`.
   - Add a `http` section with `url: http://127.0.0.1:5050` in it.
-  - At the end of the file add `admin:`, `api:` and `dashboard:`
+  - At the end of the file add `admin:` and `api:`.
+  - Remove everthing under `hadashboard:`, leaving just that.
 
 The result should look something like this:
 
@@ -162,9 +163,9 @@ appdaemon:
       type: hass
 http:
   url: http://127.0.0.1:5050
+hadashboard:
 admin:
 api:
-dashboard:
 ```
 
 Be sure to check the "Upgrading from 3.x" on the AppDaemon website:

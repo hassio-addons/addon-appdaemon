@@ -12,6 +12,7 @@ COPY requirements.txt /tmp/
 COPY rootfs/patches /patches
 
 # Setup base
+# hadolint ignore=DL3003
 RUN \
     apk add --no-cache --virtual .build-dependencies \
         gcc=9.2.0-r3 \

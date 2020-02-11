@@ -56,17 +56,13 @@ official documentation. The official documentation will state `ha_url` and
 
 Example add-on configuration:
 
-```json
-{
-  "log_level": "info",
-  "system_packages": [
-    "ffmpeg"
-  ],
-  "python_packages": [
-    "PyMySQL",
-    "Pillow"
-  ]
-}
+```yaml
+log_level: info
+system_packages:
+  - ffmpeg
+python_packages:
+  - PyMySQL
+  - Pillow
 ```
 
 **Note**: _This is just an example, don't copy and past it! Create your own!_

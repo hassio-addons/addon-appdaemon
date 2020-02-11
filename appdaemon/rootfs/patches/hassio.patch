@@ -14,16 +14,16 @@ index 138aa4d..755659a 100644
  
          if "token" in args:
              self.token = args["token"]
-+        elif "HASSIO_TOKEN" in os.environ:
-+            self.token = os.environ.get('HASSIO_TOKEN')
++        elif "SUPERVISOR_TOKEN" in os.environ:
++            self.token = os.environ.get('SUPERVISOR_TOKEN')
 +            self.AD.config["plugins"][name]["token"] = self.token
          else:
              self.token = None
  
          if "ha_url" in args:
              self.ha_url = args["ha_url"]
-+        elif "HASSIO_TOKEN" in os.environ:
-+            self.ha_url = "http://hassio/homeassistant"
++        elif "SUPERVISOR_TOKEN" in os.environ:
++            self.ha_url = "http://supervisor/core"
 +            self.AD.config["plugins"][name]["ha_url"] = self.ha_url
          else:
              self.logger.warning("ha_url not found in HASS configuration - module not initialized")

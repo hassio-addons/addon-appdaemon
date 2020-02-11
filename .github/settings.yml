@@ -1,8 +1,8 @@
 ---
 repository:
-  description: "AppDaemon4 - Community Hass.io Add-on for Home Assistant"
+  description: "AppDaemon4 - Community Home Assistant Add-ons"
   homepage: https://addons.community
-  topics: dashboard, appdaemon, python, ssh-server, hassio-addons, hassio, hass, home-assistant, homeassistant
+  topics: dashboard, appdaemon, python, ssh-server, addon, addons, home-assistant, homeassistant
   private: false
   has_issues: true
   has_projects: false

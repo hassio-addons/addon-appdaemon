@@ -1,6 +1,6 @@
 #!/usr/bin/execlineb -S0
 # ==============================================================================
-# Community Hass.io Add-ons: AppDaemon
+# Community Home Assistant Add-on: AppDaemon
 # Take down the S6 supervision tree when AppDaemon fails
 # ==============================================================================
 if -n { s6-test $# -ne 0 }

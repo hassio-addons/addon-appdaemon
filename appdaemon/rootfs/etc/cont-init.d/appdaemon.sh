@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bashio
 # ==============================================================================
-# Community Hass.io Add-ons: AppDaemon
+# Community Home Assistant Add-on: AppDaemon
 # Configures AppDaemon
 # ==============================================================================
 readonly CONFIG_FILE="/config/appdaemon/appdaemon.yaml"

@@ -205,6 +205,12 @@ You have several options to get them answered:
 
 You could also [open an issue here][issue] GitHub.
 
+## FAQ
+# AppDaemon Fails to find '/config/appdaemon/appdaemon.yaml'
+This error can appear if you installed an AppDaemon app before installing AppDaemon. 
+Uninstall all AppDaemon apps and manually delete the '/config/appdaemon' folder. Now you should be able to start AppDaemon and install your apps.
+
+
 ## Contributing
 
 This is an active open-source project. We are always open to people who want to

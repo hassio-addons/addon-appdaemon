@@ -3,7 +3,6 @@
 # Home Assistant Community Add-on: AppDaemon
 # Configures AppDaemon
 # ==============================================================================
-readonly CONFIG_FILE="/config/appdaemon/appdaemon.yaml"
 declare arch
 
 # Creates initial AppDaemon configuration in case it is non-existing

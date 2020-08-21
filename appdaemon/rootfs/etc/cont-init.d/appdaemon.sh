@@ -29,7 +29,7 @@ if bashio::config.has_value 'python_packages'; then
     for package in $(bashio::config 'python_packages'); do
         pip3 install \
             --prefer-binary \
-            --find-links "https://wheels.hass.io/alpine-3.11/${arch}/" \
+            --find-links "https://wheels.home-assistant.io/alpine-3.12/${arch}/" \
             "$package" \
                 || bashio::exit.nok "Failed installing package ${package}"
     done

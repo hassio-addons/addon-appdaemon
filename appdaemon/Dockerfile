@@ -13,20 +13,23 @@ COPY rootfs/patches /patches
 
 # Setup base
 # hadolint ignore=DL3003
+ARG BUILD_ARCH=amd64
 RUN \
     apk add --no-cache --virtual .build-dependencies \
         gcc=9.3.0-r2 \
         libc-dev=0.7.2-r3 \
         libffi-dev=3.3-r2 \
         python3-dev=3.8.5-r0 \
+        py3-pip=20.1.1-r0 \
+        patch=2.7.6-r6 \
     \
     && apk add --no-cache \
         python3=3.8.5-r0 \
     \
-    && pip3 install \
+    && pip install \
         --no-cache-dir \
         --prefer-binary \
-        --find-links "https://wheels.hass.io/alpine-3.12/${BUILD_ARCH}/" \
+        --find-links "https://wheels.home-assistant.io/alpine-3.12/${BUILD_ARCH}/" \
         -r /tmp/requirements.txt \
     \
     && cd /usr/lib/python3.8/site-packages/ \

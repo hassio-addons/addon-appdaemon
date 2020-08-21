@@ -12,15 +12,15 @@ COPY requirements.txt /tmp/
 COPY rootfs/patches /patches
 
 # Setup base
-# hadolint ignore=DL3003
 ARG BUILD_ARCH=amd64
+# hadolint ignore=DL3003
 RUN \
     apk add --no-cache --virtual .build-dependencies \
         gcc=9.3.0-r2 \
         libc-dev=0.7.2-r3 \
         libffi-dev=3.3-r2 \
         python3-dev=3.8.5-r0 \
-        py3-pip=20.1.1-r0 \
+        py3-pip=20.1.1-r0 
         patch=2.7.6-r6 \
     \
     && apk add --no-cache \
@@ -47,7 +47,6 @@ RUN \
 COPY rootfs /
 
 # Build arguments
-ARG BUILD_ARCH
 ARG BUILD_DATE
 ARG BUILD_REF
 ARG BUILD_VERSION

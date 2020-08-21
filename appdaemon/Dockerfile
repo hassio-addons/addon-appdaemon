@@ -26,7 +26,7 @@ RUN \
     && pip3 install \
         --no-cache-dir \
         --prefer-binary \
-        --find-links "https://wheels.hass.io/alpine-3.11/${BUILD_ARCH}/" \
+        --find-links "https://wheels.hass.io/alpine-3.12/${BUILD_ARCH}/" \
         -r /tmp/requirements.txt \
     \
     && cd /usr/lib/python3.8/site-packages/ \

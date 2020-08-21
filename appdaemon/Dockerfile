@@ -18,10 +18,10 @@ RUN \
         gcc=9.2.0-r4 \
         libc-dev=0.7.2-r0 \
         libffi-dev=3.2.1-r6 \
-        python3-dev=3.8.2-r0 \
+        python3-dev=3.8.5-r0 \
     \
     && apk add --no-cache \
-        python3=3.8.2-r0 \
+        python3=3.8.5-r0 \
     \
     && pip3 install \
         --no-cache-dir \

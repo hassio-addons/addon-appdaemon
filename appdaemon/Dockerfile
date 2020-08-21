@@ -20,10 +20,10 @@ RUN \
         libc-dev=0.7.2-r3 \
         libffi-dev=3.3-r2 \
         patch=2.7.6-r6 \
-        py3-pip=20.1.1-r0 \
         python3-dev=3.8.5-r0 \
     \
     && apk add --no-cache \
+        py3-pip=20.1.1-r0 \
         python3=3.8.5-r0 \
     \
     && pip install \

@@ -10,7 +10,7 @@
 ![Supports armv7 Architecture][armv7-shield]
 ![Supports i386 Architecture][i386-shield]
 
-[![GitLab CI][gitlabci-shield]][gitlabci]
+[![Github Actions][github-actions-shield]][github-actions]
 ![Project Maintenance][maintenance-shield]
 [![GitHub Activity][commits-shield]][commits]
 
@@ -102,19 +102,19 @@ SOFTWARE.
 [armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
 [armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
 [commits-shield]: https://img.shields.io/github/commit-activity/y/hassio-addons/addon-appdaemon.svg
-[commits]: https://github.com/hassio-addons/addon-appdaemon/commits/master
+[commits]: https://github.com/hassio-addons/addon-appdaemon/commits/main
 [contributors]: https://github.com/hassio-addons/addon-appdaemon/graphs/contributors
 [discord-ha]: https://discord.gg/c5DvZ4e
 [discord-shield]: https://img.shields.io/discord/478094546522079232.svg
 [discord]: https://discord.me/hassioaddons
-[docs]: https://github.com/hassio-addons/addon-appdaemon/blob/master/appdaemon/DOCS.md
+[docs]: https://github.com/hassio-addons/addon-appdaemon/blob/main/appdaemon/DOCS.md
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg
 [forum]: https://community.home-assistant.io/t/home-assistant-community-add-on-appdaemon-4/163259?u=frenck
 [frenck]: https://github.com/frenck
+[github-actions-shield]: https://github.com/hassio-addons/addon-appdaemon/workflows/CI/badge.svg
+[github-actions]: https://github.com/hassio-addons/addon-appdaemon/actions
 [github-sponsors-shield]: https://frenck.dev/wp-content/uploads/2019/12/github_sponsor.png
 [github-sponsors]: https://github.com/sponsors/frenck
-[gitlabci-shield]: https://gitlab.com/hassio-addons/addon-appdaemon/badges/master/pipeline.svg
-[gitlabci]: https://gitlab.com/hassio-addons/addon-appdaemon/pipelines
 [i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
 [issue]: https://github.com/hassio-addons/addon-appdaemon/issues
 [license-shield]: https://img.shields.io/github/license/hassio-addons/addon-appdaemon.svg

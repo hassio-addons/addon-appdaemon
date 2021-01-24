@@ -7,7 +7,6 @@
   "webui": "http://[HOST]:[PORT:5050]",
   "arch": ["aarch64", "amd64", "armhf", "armv7", "i386"],
   "init": false,
-  "hassio_api": true,
   "homeassistant_api": true,
   "auto_uart": true,
   "ports": {

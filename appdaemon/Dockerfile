@@ -24,7 +24,7 @@ RUN \
         python3-dev=3.8.7-r0 \
     \
     && apk add --no-cache \
-        py3-pip=20.3.3-r0 \
+        py3-pip=20.3.4-r0 \
         python3=3.8.7-r0 \
     \
     && pip install \

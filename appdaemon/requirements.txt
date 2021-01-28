@@ -1,1 +1,20 @@
 appdaemon==4.0.5
+
+# AppDaemon 4.0.5 Patch
+#
+# Temporary version pin for Engine.io, as 4.0.0 provides a new protocol
+# version that isn't compatible with AppDaemon's outdated packages, that
+# are not pinned in AppDaemon's requirements.
+#
+# More information:
+#  - https://github.com/hassio-addons/addon-appdaemon/issues/64
+#  - https://github.com/AppDaemon/appdaemon/issues/1140
+#
+# This patch forces a pin from the add-on end, since AppDaemon responded:
+#
+#  "if it worked with python 3.8.5 and now isnt working anymore after an
+#  update to python 3.8.7 then its the python update that caused the problem."
+# 
+# Yeah... :facepalm:
+#
+python-engineio>=3.9.0,<4.0.0

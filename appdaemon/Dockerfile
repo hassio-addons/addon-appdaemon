@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:9.1.2
+ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:9.1.4
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -19,7 +19,7 @@ RUN \
         gcc=10.2.1_pre1-r3 \
         libc-dev=0.7.2-r3 \
         libffi-dev=3.3-r2 \
-        openssl-dev=1.1.1i-r0 \
+        openssl-dev=1.1.1j-r0 \
         patch=2.7.6-r6 \
         python3-dev=3.8.7-r0 \
     \

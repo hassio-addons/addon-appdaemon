@@ -16,11 +16,10 @@ ARG BUILD_ARCH=amd64
 # hadolint ignore=DL3003
 RUN \
     apk add --no-cache --virtual .build-dependencies \
-        gcc=10.2.1_pre1-r3 \
-        libc-dev=0.7.2-r3 \
+        build-base=0.5-r2 \
         libffi-dev=3.3-r2 \
         openssl-dev=1.1.1j-r0 \
-        patch=2.7.6-r6 \
+        py3-wheel=0.36.2-r0 \
         python3-dev=3.8.8-r0 \
     \
     && apk add --no-cache \

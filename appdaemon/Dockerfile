@@ -21,11 +21,11 @@ RUN \
         libffi-dev=3.3-r2 \
         openssl-dev=1.1.1j-r0 \
         patch=2.7.6-r6 \
-        python3-dev=3.8.7-r1 \
+        python3-dev=3.8.8-r0 \
     \
     && apk add --no-cache \
         py3-pip=20.3.4-r0 \
-        python3=3.8.7-r1 \
+        python3=3.8.8-r0 \
     \
     && pip install \
         --no-cache-dir \

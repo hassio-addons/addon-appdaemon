@@ -2,11 +2,11 @@
 configuration:
   log_level:
     name: Log level
-    description: >
+    description: >-
       Controls the level of log details the add-on provides.
   system_packages:
     name: System packages
-    description: >
+    description: >-
       Allows you to specificy a list of additional Alpine Linux packages to be
       installed before AppDaemon starts.
   python_packages:

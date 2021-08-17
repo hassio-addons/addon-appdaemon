@@ -24,6 +24,7 @@ RUN \
     \
     && apk add --no-cache \
         py3-pip=20.3.4-r1 \
+        py3-bcrypt=3.2.0-r3 \
         python3=3.9.5-r1 \
     \
     && pip install \
@@ -32,7 +33,7 @@ RUN \
         --find-links "https://wheels.home-assistant.io/alpine-3.14/${BUILD_ARCH}/" \
         -r /tmp/requirements.txt \
     \
-    && cd /usr/lib/python3.8/site-packages/ \
+    && cd /usr/lib/python3.9/site-packages/ \
     && patch -p1 < /patches/force_recompile.patch \
     && patch -p1 < /patches/hassio.patch \
     \

@@ -33,9 +33,9 @@ Example add-on configuration:
 log_level: info
 system_packages:
   - ffmpeg
+  - py3-pillow
 python_packages:
   - PyMySQL
-  - Pillow
 ```
 
 **Note**: _This is just an example, don't copy and past it! Create your own!_
@@ -63,7 +63,8 @@ These log level also affects the log levels of the AppDaemon.
 ### Option: `system_packages`
 
 Allows you to specify additional [Alpine packages][alpine-packages] to be
-installed to your AppDaemon setup (e.g., `g++`. `make`, `ffmpeg`).
+installed to your AppDaemon setup (e.g., `g++`. `make`, `ffmpeg`, `py3-numpy`,
+`py3-pillow`).
 
 **Note**: _Adding many packages will result in a longer start-up time
 for the add-on._
@@ -71,7 +72,7 @@ for the add-on._
 ### Option: `python_packages`
 
 Allows you to specify additional [Python packages][python-packages] to be
-installed to your AppDaemon setup (e.g., `PyMySQL`. `Requests`, `Pillow`).
+installed to your AppDaemon setup (e.g., `PyMySQL`. `Requests`).
 
 **Note**: _Adding many packages will result in a longer start-up time
 for the add-on._

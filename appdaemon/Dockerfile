@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:10.2.2
+ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:11.0.1
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -17,20 +17,21 @@ ARG BUILD_ARCH=amd64
 RUN \
     apk add --no-cache --virtual .build-dependencies \
         build-base=0.5-r2 \
-        libffi-dev=3.3-r2 \
-        openssl-dev=1.1.1l-r0 \
+        libffi-dev=3.4.2-r1 \
+        openssl-dev=1.1.1l-r8 \
         py3-wheel=0.36.2-r2 \
-        python3-dev=3.9.5-r2\
+        python3-dev=3.9.7-r4 \
     \
     && apk add --no-cache \
+        py3-bcrypt=3.2.0-r4 \
+        py3-cryptography=3.3.2-r3 \
         py3-pip=20.3.4-r1 \
-        py3-bcrypt=3.2.0-r3 \
-        python3=3.9.5-r2 \
+        python3=3.9.7-r4 \
     \
     && pip install \
         --no-cache-dir \
         --prefer-binary \
-        --find-links "https://wheels.home-assistant.io/alpine-3.14/${BUILD_ARCH}/" \
+        --find-links "https://wheels.home-assistant.io/alpine-3.15/${BUILD_ARCH}/" \
         -r /tmp/requirements.txt \
     \
     && cd /usr/lib/python3.9/site-packages/ \

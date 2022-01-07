@@ -1,17 +1,15 @@
-diff --git a/appdaemon/plugins/hass/hassplugin.py b/appdaemon/plugins/hass/hassplugin.py
-index 702d0f14..be41de18 100644
 --- a/appdaemon/plugins/hass/hassplugin.py
 +++ b/appdaemon/plugins/hass/hassplugin.py
-@@ -9,6 +9,7 @@ from deepdiff import DeepDiff
- import datetime
+@@ -11,6 +11,7 @@ import datetime
  from urllib.parse import quote
  from urllib.parse import urlencode
+ from typing import Union
 +import os
- 
+
  import appdaemon.utils as utils
  from appdaemon.appdaemon import AppDaemon
-@@ -63,11 +64,17 @@ class HassPlugin(PluginBase):
- 
+@@ -65,11 +66,17 @@ class HassPlugin(PluginBase):
+
          if "token" in args:
              self.token = args["token"]
 +        elif "SUPERVISOR_TOKEN" in os.environ:
@@ -19,7 +17,7 @@ index 702d0f14..be41de18 100644
 +            self.AD.config["plugins"][name]["token"] = self.token
          else:
              self.token = None
- 
+
          if "ha_url" in args:
              self.ha_url = args["ha_url"]
 +        elif "SUPERVISOR_TOKEN" in os.environ:
@@ -27,4 +25,3 @@ index 702d0f14..be41de18 100644
 +            self.AD.config["plugins"][name]["ha_url"] = self.ha_url
          else:
              self.logger.warning("ha_url not found in HASS configuration - module not initialized")
- 

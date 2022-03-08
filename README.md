@@ -1,4 +1,4 @@
-# Home Assistant Community Add-on: AppDaemon 4
+# Home Assistant Community Add-on: AppDaemon
 
 [![GitHub Release][releases-shield]][releases]
 ![Project Stage][project-stage-shield]
@@ -27,10 +27,10 @@ Python Apps and HADashboard for Home Assistant
 
 ## About
 
-AppDaemon is a loosely coupled, multithreaded, sandboxed python execution
-environment for writing automation apps for Home Assistant home automation
-software. It also provides a configurable dashboard (HADashboard) suitable
-for wall mounted tablets.
+[AppDaemon][appdaemon] is a loosely coupled, multithreaded, sandboxed Python
+execution environment for writing automation apps for Home Assistant home
+automation software. It also provides a configurable dashboard (HADashboard)
+suitable for wall mounted tablets.
 
 [:books: Read the full add-on documentation][docs]
 
@@ -99,6 +99,7 @@ SOFTWARE.
 
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
+[appdaemon]: https://appdaemon.readthedocs.io
 [armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
 [armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
 [commits-shield]: https://img.shields.io/github/commit-activity/y/hassio-addons/addon-appdaemon.svg

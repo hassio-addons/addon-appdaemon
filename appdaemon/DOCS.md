@@ -1,9 +1,9 @@
-# Home Assistant Community Add-on: AppDaemon 4
+# Home Assistant Community Add-on: AppDaemon
 
-AppDaemon is a loosely coupled, multithreaded, sandboxed python execution
-environment for writing automation apps for Home Assistant home automation
-software. It also provides a configurable dashboard (HADashboard) suitable
-for wall mounted tablets.
+[AppDaemon][appdaemon] is a loosely coupled, multithreaded, sandboxed Python
+execution environment for writing automation apps for Home Assistant home
+automation software. It also provides a configurable dashboard (HADashboard)
+suitable for wall mounted tablets.
 
 ## Installation
 
@@ -16,8 +16,8 @@ comparison to installing any other Home Assistant add-on.
    [![Open this add-on in your Home Assistant instance.][addon-badge]][addon]
 
 1. Click the "Install" button to install the add-on.
-1. Start the "AppDaemon 4" add-on
-1. Check the logs of the "AppDaemon 4" add-on to see if everything went well.
+1. Start the "AppDaemon" add-on
+1. Check the logs of the "AppDaemon" add-on to see if everything went well.
 
 :information_source: Please note, the add-on is pre-configured to connect with
 Home Assistant. There is no need to create access tokens or to set your
@@ -120,45 +120,6 @@ official documentation. The official documentation will state `ha_url` and
 
 However, you are free to set them if you want to override, however, in
 general usage, that should not be needed and is not recommended for this add-on.
-
-## Upgrading from AppDaemon 3.x
-
-If you have previously ran AppDaemon 3.x (e.g., via an add-on), these steps
-will help you getting upgraded to AppDaemon 4.x.
-
-- After installing this add-on, stop the current running AppDaemon 3.x add-on.
-- Open your `/config/appdaemon/appdaemon.yaml` file in an editor.
-  - Remove the `log`.
-  - Remove`threads`, `api_port`, `app_dir`, `ha_url` and `token`.
-  - Add the following to the `appdaemon` section: `latitude`, `longitude`,
-    `elevation` and `time_zone`.
-  - Add a `http` section with `url: http://127.0.0.1:5050` in it.
-  - At the end of the file add `admin:` and `api:`.
-  - Remove everthing under `hadashboard:`, leaving just that.
-
-The result should look something like this:
-
-```yaml
----
-secrets: /config/secrets.yaml
-appdaemon:
-  latitude: 52.379189
-  longitude: 4.899431
-  elevation: 2
-  time_zone: Europe/Amsterdam
-  plugins:
-    HASS:
-      type: hass
-http:
-  url: http://127.0.0.1:5050
-hadashboard:
-admin:
-api:
-```
-
-Be sure to check the "Upgrading from 3.x" on the AppDaemon website:
-
-<https://appdaemon.readthedocs.io/en/latest/UPGRADE_FROM_3.x.html>
 
 ## Changelog & Releases
 

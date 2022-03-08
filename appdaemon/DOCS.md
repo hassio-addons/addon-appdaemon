@@ -23,7 +23,7 @@ comparison to installing any other Home Assistant add-on.
 Home Assistant. There is no need to create access tokens or to set your
 Home Assistant URL in the AppDaemon configuration.
 
-This automatic handling of the URL and token conflicts with the 
+This automatic handling of the URL and token conflicts with the
 [AppDaemon official documentation][appdaemon]. The official documentation
 will state `ha_url` and `token` options are required. For the add-on, however,
 this isn't needed.

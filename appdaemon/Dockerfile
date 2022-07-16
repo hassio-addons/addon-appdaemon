@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:12.0.0
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:12.2.1
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -12,33 +12,24 @@ COPY requirements.txt /tmp/
 COPY rootfs/patches /patches
 
 # Setup base
-ARG BUILD_ARCH=amd64
-# hadolint ignore=DL3003
+# hadolint ignore=DL3003,DL3042
 RUN \
     apk add --no-cache --virtual .build-dependencies \
-        build-base=0.5-r2 \
-        libffi-dev=3.4.2-r1 \
-        openssl-dev=1.1.1o-r0 \
-        py3-wheel=0.37.1-r0 \
+        build-base=0.5-r3 \
         python3-dev=3.10.4-r0 \
     \
     && apk add --no-cache \
-        py3-bcrypt=3.2.2-r0 \
-        py3-cryptography=3.4.8-r1 \
         py3-pip=22.1.1-r0 \
+        py3-wheel=0.37.1-r0 \
         python3=3.10.4-r0 \
     \
-    && pip install \
-        --no-cache-dir \
-        --prefer-binary \
-        --find-links "https://wheels.home-assistant.io/alpine-3.16/${BUILD_ARCH}/" \
-        -r /tmp/requirements.txt \
+    && pip install -r /tmp/requirements.txt \
     \
     && cd /usr/lib/python3.10/site-packages/ \
     && patch -p1 < /patches/force_recompile.patch \
     && patch -p1 < /patches/hassio.patch \
     \
-    && find /usr/local \
+    && find /usr \
         \( -type d -a -name test -o -name tests -o -name '__pycache__' \) \
         -o \( -type f -a -name '*.pyc' -o -name '*.pyo' \) \
         -exec rm -rf '{}' + \

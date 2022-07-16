@@ -3,7 +3,6 @@
 # Home Assistant Community Add-on: AppDaemon
 # Configures AppDaemon
 # ==============================================================================
-declare arch
 
 # Creates initial AppDaemon configuration in case it is non-existing
 if ! bashio::fs.directory_exists '/config/appdaemon'; then
@@ -38,13 +37,9 @@ fi
 
 # Install user configured/requested Python packages
 if bashio::config.has_value 'python_packages'; then
-    arch=$(bashio::info.arch)
     for package in $(bashio::config 'python_packages'); do
-        pip3 install \
-            --prefer-binary \
-            --find-links "https://wheels.home-assistant.io/alpine-3.14/${arch}/" \
-            "$package" \
-                || bashio::exit.nok "Failed installing package ${package}"
+        pip3 install "$package" \
+            || bashio::exit.nok "Failed installing package ${package}"
     done
 fi
 

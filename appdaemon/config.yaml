@@ -22,6 +22,7 @@ ports_description:
 map:
   - config:rw
   - share:rw
+  - media:rw
   - ssl
 options:
   system_packages: []

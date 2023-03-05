@@ -27,7 +27,7 @@ RUN \
     \
     && cd /usr/lib/python3.10/site-packages/ \
     && patch -p1 < /patches/force_recompile.patch \
-    && patch -p1 < /patches/hassio.patch \
+    && patch -p1 < /patches/supervisor.patch \
     \
     && find /usr \
         \( -type d -a -name test -o -name tests -o -name '__pycache__' \) \

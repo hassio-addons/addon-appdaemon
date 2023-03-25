@@ -33,7 +33,7 @@
     },
     {
       "groupName": "Python",
-      "matchManagers": ["repology"],
+      "matchDatasources": ["repology"],
       "matchDepPatterns": ["^alpine.*/python.*"],
       "automerge": true
     },

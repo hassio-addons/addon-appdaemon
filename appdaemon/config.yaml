@@ -1,6 +1,6 @@
 ---
 name: AppDaemon
-version: dev.30
+version: dev.31
 slug: appdaemon
 description: Python Apps and Dashboard using AppDaemon 4.x for Home Assistant
 url: https://github.com/AlexMKX/addon-appdaemon

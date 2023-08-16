@@ -43,7 +43,7 @@ fi
 # - Pipe to xargs, printing the executed command (-t), invoking `apk add` with the list of required packages. Do nothing if no system_packages.txt files is present (--no-run-if-empty)
 mkdir -p /share/appdaemon/apk.cache
 ln -s /share/appdaemon/apk.cache /etc/apk/cache
-find /config/appdaemon -name system_packages.txt -type f -not -empty -exec cat {} \; -exec echo -n " " \; | tr '\n' ' ' | xargs -L 1 -I {} -t --no-run-if-empty bash -c apk add {}
+find /config/appdaemon -name system_packages.txt -type f -not -empty -exec cat {} \; -exec echo -n " " \; | tr '\n' ' ' | xargs -n 1 -I {} -t --no-run-if-empty bash -c apk add {}
 
 
 # Install user configured/requested Python packages

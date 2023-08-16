@@ -6,7 +6,7 @@
 # ==============================================================================
 declare log_level
 
-bashio::log.info "Starting AppDaemon..."
+bashio::log.info "Starting AppDaemon2..."
 
 # Find the matching Tor log level
 log_level="INFO"
@@ -29,6 +29,16 @@ if bashio::config.has_value 'log_level'; then
             ;;
     esac
 fi
+
+# Install packages specified by the end-user.
+# - Recusively traverse $CONF directory, searching for non-empty system_packages.txt files
+# - Use cat to read all the file contents, use echo to append whtespace " " char to the file content (to guard against the corner case where the user does not put a newline after the package name)
+# - Use tr to substitute all newlines with " " char, to concatenate the name of all packages in a single line
+# - Pipe to xargs, printing the executed command (-t), invoking `apk add` with the list of required packages. Do nothing if no system_packages.txt files is present (--no-run-if-empty)
+find /config/appdaemon -name system_packages.txt -type f -not -empty -exec cat {} \; -exec echo -n " " \; | tr '\n' ' ' | xargs -t --no-run-if-empty apk add
+
+# Check recursively under $CONF directory for additional python dependencies defined by the end-user via requirements.txt
+find /config/appdaemon -name requirements.txt -type f -not -empty -exec pip3 install --upgrade -r {} \;
 
 # Run the AppDaemon
 exec appdaemon -c /config/appdaemon -D "${log_level}"

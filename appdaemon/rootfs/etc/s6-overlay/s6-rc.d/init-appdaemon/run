@@ -44,7 +44,7 @@ fi
 mkdir -p /share/appdaemon/apk.cache
 ln -s /share/appdaemon/apk.cache /etc/apk/cache
 
-find /config/appdaemon -name system_packages.txt -type f -not -empty -exec cat {} \; -exec echo -n " " \; | sed ':a;N;$!ba;s/\n/ /g' | xargs -n 1 -0 -r -t apk add
+find /config/appdaemon -name system_packages.txt -type f -not -empty -exec cat {} \; -exec echo -n " " \; | sed ":a;N;$!ba;s/\n/ /g" | xargs -n 1 -0 -r -t apk add
 
 # Install user configured/requested Python packages
 if bashio::config.has_value 'python_packages'; then

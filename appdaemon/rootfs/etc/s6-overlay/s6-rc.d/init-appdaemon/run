@@ -46,7 +46,7 @@ ln -s /share/appdaemon/apk.cache /etc/apk/cache
 packages=`find /config/appdaemon -name system_packages.txt -type f -not -empty -exec cat {} \; -exec echo -n " " \; | sed ':a;N;$!ba;s/\n/ /g'`
 for p in $packages;
 do
-    apk add $p
+    apk add "$p"
 done
 
 

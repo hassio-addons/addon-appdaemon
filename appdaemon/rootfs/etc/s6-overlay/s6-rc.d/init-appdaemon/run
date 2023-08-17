@@ -47,6 +47,10 @@ ln -s /share/appdaemon/apk.cache /etc/apk/cache
 
 find /config/appdaemon -name system_packages.txt -type f -not -empty -exec cat {} \; -exec echo -n " " \; | tr -d '\xEF\xBB\xBF' | sed ':a;N;$!ba;s/\n/ /g' | xargs -n 1 -r -t apk add
 
+# Check recursively under $CONF directory for additional python dependencies defined by the end-user via requirements.txt
+mkdir -p /share/appdaemon/pip.cache
+find /config/appdaemon -name requirements.txt -type f -not -empty -exec pip3 --cache-dir /share/appdaemon/pip.cache install --upgrade -r {} \;
+
 # Install user configured/requested Python packages
 if bashio::config.has_value 'python_packages'; then
     for package in $(bashio::config 'python_packages'); do

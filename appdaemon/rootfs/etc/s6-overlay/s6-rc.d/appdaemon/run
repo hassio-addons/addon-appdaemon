@@ -23,7 +23,7 @@ if bashio::config.has_value 'log_level'; then
             ;;
         error)
             log_level="ERROR"
-            ;;
+            ;;e
         fatal|off)
             log_level="FATAL"
             ;;
@@ -32,9 +32,6 @@ fi
 
 
 
-# Check recursively under $CONF directory for additional python dependencies defined by the end-user via requirements.txt
-mkdir -p /share/appdaemon/pip.cache
-find /config/appdaemon -name requirements.txt -type f -not -empty -exec pip3 --cache-dir /share/appdaemon/pip.cache install --upgrade -r {} \;
 
 # Run the AppDaemon
 exec appdaemon -c /config/appdaemon -D "${log_level}"

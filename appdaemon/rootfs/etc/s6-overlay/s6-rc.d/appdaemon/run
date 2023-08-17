@@ -23,7 +23,7 @@ if bashio::config.has_value 'log_level'; then
             ;;
         error)
             log_level="ERROR"
-            ;;e
+            ;;
         fatal|off)
             log_level="FATAL"
             ;;

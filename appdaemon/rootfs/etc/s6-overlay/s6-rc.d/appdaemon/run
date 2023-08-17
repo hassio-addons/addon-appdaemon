@@ -6,7 +6,7 @@
 # ==============================================================================
 declare log_level
 
-bashio::log.info "Starting AppDaemon3..."
+bashio::log.info "Starting AppDaemon..."
 
 # Find the matching Tor log level
 log_level="INFO"
@@ -29,9 +29,6 @@ if bashio::config.has_value 'log_level'; then
             ;;
     esac
 fi
-
-
-
 
 # Run the AppDaemon
 exec appdaemon -c /config/appdaemon -D "${log_level}"

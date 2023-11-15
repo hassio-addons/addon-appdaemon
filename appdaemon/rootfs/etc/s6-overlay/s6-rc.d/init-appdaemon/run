@@ -7,7 +7,7 @@
 
 # Migrate add-on data from the Home Assistant config folder,
 # to the add-on configuration folder.
-if ! bashio::fs.directory_exists '/config/appdaemon.yaml' \
+if ! bashio::fs.file_exists '/config/appdaemon.yaml' \
     && bashio::fs.file_exists '/homeassistant/appdaemon/appdaemon.yaml'; then
     shopt -s dotglob
     mv /homeassistant/appdaemon/* /config/ \

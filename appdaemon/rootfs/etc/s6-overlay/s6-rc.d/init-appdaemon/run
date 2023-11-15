@@ -15,7 +15,7 @@ if ! bashio::fs.directory_exists '/config/appdaemon.yaml' \
 fi
 
 # Creates initial AppDaemon configuration in case it is non-existing
-if ! bashio::fs.directory_exists '/config/appdaemon.yaml'; then
+if ! bashio::fs.file_exists '/config/appdaemon.yaml'; then
     cp -R /root/appdaemon/* /config/ \
         || bashio::exit.nok 'Failed to create initial AppDaemon configuration'
 fi

@@ -18,10 +18,9 @@ ports:
 ports_description:
   5050/tcp: AppDaemon
 map:
-  - addon_config:rw
-  - homeassistant_config:rw
-  - media:rw
+  - config:rw
   - share:rw
+  - media:rw
   - ssl
 options:
   system_packages: []

@@ -32,6 +32,8 @@ this isn't needed.
 
 **Note**: _Remember to restart the add-on when the configuration is changed._
 
+:information_source: In order to edit the configuration using the File Editor add-on, you will need to **disable** the File Editor configuration option "Enforce Basepath"
+
 Example add-on configuration:
 
 ```yaml

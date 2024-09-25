@@ -30,6 +30,8 @@ this isn't needed.
 
 ## Configuration
 
+Configurations are under `/addon_configs/a0d7b954_appdaemon`
+<br/><br/>
 **Note**: _Remember to restart the add-on when the configuration is changed._
 
 Example add-on configuration:

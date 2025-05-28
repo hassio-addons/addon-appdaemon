@@ -25,7 +25,7 @@ RUN \
     \
     && pip install -r /tmp/requirements.txt \
     \
-    && cd /usr/lib/python3.11/site-packages/ \
+    && cd /usr/lib/python3.12/site-packages/ \
     && patch -p1 < /patches/force_recompile.patch \
     \
     && find /usr \

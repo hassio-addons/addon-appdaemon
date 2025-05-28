@@ -27,6 +27,7 @@ RUN \
     \
     && cd /usr/lib/python3.12/site-packages/ \
     && patch -p1 < /patches/force_recompile.patch \
+    && patch -p1 < /patches/plugin_config_model.patch \
     \
     && find /usr \
         \( -type d -a -name test -o -name tests -o -name '__pycache__' \) \

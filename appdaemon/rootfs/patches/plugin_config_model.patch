@@ -1,0 +1,13 @@
+diff --git a/appdaemon/models/config/plugin.py b/appdaemon/models/config/plugin.py
+index 3fc2d61f..ec39e42e 100644
+--- a/appdaemon/models/config/plugin.py
++++ b/appdaemon/models/config/plugin.py
+@@ -85,7 +85,7 @@ class StartupConditions(BaseModel):
+
+ class HASSConfig(PluginConfig):
+     ha_url: str = "http://supervisor/core"
+-    token: SecretStr
++    token: SecretStr | None = None
+     ha_key: Annotated[SecretStr, deprecated("'ha_key' is deprecated. Please use long lived tokens instead")] | None = None
+     appdaemon_startup_conditions: StartupConditions | None = None
+     plugin_startup_conditions: StartupConditions | None = None

@@ -21,15 +21,18 @@ if ! bashio::fs.file_exists '/config/appdaemon.yaml'; then
 fi
 
 # Fix authentication for existing users who don't have token or ha_key configured
-token_exists=$(yq e '.appdaemon.plugins.HASS | has("token")' /config/appdaemon.yaml)
-ha_key_exists=$(yq e '.appdaemon.plugins.HASS | has("ha_key")' /config/appdaemon.yaml)
+hass_plugin_exists=$(yq e 'has("appdaemon") and .appdaemon | has("plugins") and .appdaemon.plugins | has("HASS")' /config/appdaemon.yaml)
+if [[ "$hass_plugin_exists" == "true" ]]; then
+    token_exists=$(yq e '.appdaemon.plugins.HASS | has("token")' /config/appdaemon.yaml)
+    ha_key_exists=$(yq e '.appdaemon.plugins.HASS | has("ha_key")' /config/appdaemon.yaml)
 
-if [[ "$token_exists" == "false" && "$ha_key_exists" == "false" ]]; then
-    bashio::log.info "Updating existing AppDaemon configuration to add authentication token..."
-    
-    # Add the token to the HASS plugin configuration with proper YAML tag
-    yq e '.appdaemon.plugins.HASS.token = "SUPERVISOR_TOKEN" | .appdaemon.plugins.HASS.token tag="!env_var"' -i /config/appdaemon.yaml \
-        || bashio::log.warning "Failed to update AppDaemon configuration with token"
+    if [[ "$token_exists" == "false" && "$ha_key_exists" == "false" ]]; then
+        bashio::log.info "Updating existing AppDaemon configuration to add authentication token..."
+        
+        # Add the token to the HASS plugin configuration with proper YAML tag
+        yq e '.appdaemon.plugins.HASS.token = "SUPERVISOR_TOKEN" | .appdaemon.plugins.HASS.token tag="!env_var"' -i /config/appdaemon.yaml \
+            || bashio::log.warning "Failed to update AppDaemon configuration with token"
+    fi
 fi
     
 current_url=$(yq e '.http.url' /config/appdaemon.yaml)

@@ -18,6 +18,31 @@ fi
 if ! bashio::fs.file_exists '/config/appdaemon.yaml'; then
     cp -R /root/appdaemon/* /config/ \
         || bashio::exit.nok 'Failed to create initial AppDaemon configuration'
+else
+    # Fix authentication for existing users who don't have token or ha_key configured
+    # Check if HASS plugin exists and lacks both token and ha_key
+    if yq e '.appdaemon.plugins.HASS' /config/appdaemon.yaml > /dev/null 2>&1; then
+        token_exists=$(yq e '.appdaemon.plugins.HASS | has("token")' /config/appdaemon.yaml)
+        ha_key_exists=$(yq e '.appdaemon.plugins.HASS | has("ha_key")' /config/appdaemon.yaml)
+        
+        if [[ "$token_exists" == "false" && "$ha_key_exists" == "false" ]]; then
+            bashio::log.info "Updating existing AppDaemon configuration to add authentication token..."
+            
+            # Add the token to the HASS plugin configuration
+            yq e '.appdaemon.plugins.HASS.token = "!env_var SUPERVISOR_TOKEN"' -i /config/appdaemon.yaml \
+                || bashio::log.warning "Failed to update AppDaemon configuration with token"
+        fi
+    fi
+    
+    # Fix HTTP URL for existing users (migrate from 127.0.0.1 to 0.0.0.0)
+    if yq e '.http.url' /config/appdaemon.yaml > /dev/null 2>&1; then
+        current_url=$(yq e '.http.url' /config/appdaemon.yaml)
+        if [[ "$current_url" == "http://127.0.0.1:5050" ]]; then
+            bashio::log.info "Updating AppDaemon HTTP URL from 127.0.0.1 to 0.0.0.0..."
+            yq e '.http.url = "http://0.0.0.0:5050"' -i /config/appdaemon.yaml \
+                || bashio::log.warning "Failed to update AppDaemon HTTP URL"
+        fi
+    fi
 fi
 
 # Install user configured/requested packages

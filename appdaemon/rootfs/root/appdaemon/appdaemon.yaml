@@ -7,8 +7,9 @@ appdaemon:
   plugins:
     HASS:
       type: hass
+      token: !env_var SUPERVISOR_TOKEN
 http:
-  url: http://127.0.0.1:5050
+  url: http://0.0.0.0:5050
 admin:
 api:
 hadashboard:

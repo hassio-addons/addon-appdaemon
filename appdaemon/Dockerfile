@@ -22,12 +22,12 @@ RUN \
         py3-pip=24.3.1-r0 \
         py3-wheel=0.43.0-r0 \
         python3=3.12.10-r1 \
+        yq-go=4.44.5-r5 \
     \
     && pip install -r /tmp/requirements.txt \
     \
     && cd /usr/lib/python3.12/site-packages/ \
     && patch -p1 < /patches/force_recompile.patch \
-    && patch -p1 < /patches/plugin_config_model.patch \
     \
     && find /usr \
         \( -type d -a -name test -o -name tests -o -name '__pycache__' \) \

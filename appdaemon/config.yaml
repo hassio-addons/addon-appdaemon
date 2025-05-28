@@ -9,7 +9,6 @@ webui: http://[HOST]:[PORT:5050]
 arch:
   - aarch64
   - amd64
-  - armv7
 init: false
 homeassistant_api: true
 uart: true
